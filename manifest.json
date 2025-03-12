@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "True Sight Assistant",
+  "version": "1.0",
+  "description": "Right-click to fact-check highlighted text on our website.",
+  "permissions": ["contextMenus", "storage", "activeTab"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": ["http://192.241.155.25/*"],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
