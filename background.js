@@ -13,7 +13,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === "factCheck") {
     let selectedText = info.selectionText;
 
-    fetch("http://192.241.155.25/fact-check", {
+    fetch("http://127.0.0.1:5000/fact-check", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -35,7 +35,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
         return;
       }
 
-      let resultPageURL = `http://192.241.155.25/result?data=${encodeURIComponent(JSON.stringify(data))}`;
+      let resultPageURL = `http://127.0.0.1:5000/result?data=${encodeURIComponent(JSON.stringify(data))}`;
       chrome.tabs.create({ url: resultPageURL });
     })
     .catch(error => {
