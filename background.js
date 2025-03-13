@@ -1,3 +1,14 @@
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.contextMenus.removeAll(() => { 
+    chrome.contextMenus.create({
+      id: "factCheck",
+      title: "Fact-check: '%s'",
+      contexts: ["selection"]
+    });
+  });
+});
+
+// Handle click event on the right-click menu
 chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === "factCheck") {
     let selectedText = info.selectionText;
@@ -7,7 +18,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ claim: selectedText })
+      body: JSON.stringify({ claim: selectedText }) 
     })
     .then(response => {
       console.log("Raw response:", response);
