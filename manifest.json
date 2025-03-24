@@ -7,7 +7,7 @@
   "background": {
     "service_worker": "background.js"
   },
-  "host_permissions": ["http://127.0.0.1:5000/*"],
+  "host_permissions": ["http://192.241.155.25/*"],
   "icons": {
     "16": "icon16.png",
     "48": "icon48.png",
